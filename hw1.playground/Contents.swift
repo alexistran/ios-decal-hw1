@@ -23,10 +23,11 @@ class Words {
 
 
 //: [EXPLAIN YOUR ANSWER HERE]
-
+    
+//: They are the same thing, if both are not nil. If they are nil, then the values in the instance variables will error-- "!" has to be not nil, but "?" can be nil. "!" forcefully unsafely unwraps optionals, so if it is nil, it will error.
 
 //: ## Q2: Variable Types and Function Types
-    func arePalindromes(_ words: [String]) -> Bool {
+    class func arePalindromes(_ words: [String]) -> Bool {
         let reversedWords = words.map() {String($0.characters.reversed())}
         let numElements = words.count
         
@@ -35,6 +36,7 @@ class Words {
                 return false
             }
         }
+        return true
     }
 //: ### Why does the compiler dislike the **for loop**? Fix it.
 //: ### What else is wrong with this function? You may have to refer to (but **not**
@@ -42,11 +44,12 @@ class Words {
 
 
 //: [EXPLAIN YOUR ANSWER HERE]
-
+    
+//: This function is a class function
 
 //: ## Q3: More Functions and Object Initialization
-    class func isAnagram() -> Bool {
-        var countLetters : [Character : Int] //Line X
+    func isAnagram() -> Bool {
+        var countLetters : [Character : Int] = [:] //Line X
         var lenA = self.wordA.characters.count
         var lenB = self.wordB.characters.count
         
@@ -81,7 +84,7 @@ class Words {
             }
         }
         
-        return nil
+        return true
     }
 //: ### What is the problem with declaring **countLetters** as we do in **Line X**,
 //: ### and then using it in **Line Y**? Fix it (by only changing **Line X**).
@@ -90,6 +93,9 @@ class Words {
 
 
 //: [EXPLAIN YOUR ANSWER HERE]
+    
+//: We have to initialize countLetters.
+//: This method is an instance method, not a class method.
     
     
 }
